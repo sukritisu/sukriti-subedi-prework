@@ -1,0 +1,36 @@
+ body {
+  margin: 0;
+  /* line-height: 1.5; */
+  text-transform: uppercase;
+  /* font-family: Arial; */
+  background-color:powderblue;
+  /* text-align:center; */
+}
+
+h1{
+  color:white;
+  text-align:left;
+  font-size:200%;
+}
+
+#mystyle{
+  background-color:powderblue;
+  text-align:center;
+  text-transform: uppercase;
+
+  }
+
+/* #mycenter{
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  transform: translateX(50%);
+} */
+
+/* div{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+} */

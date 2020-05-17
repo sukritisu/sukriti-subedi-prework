@@ -1,0 +1,59 @@
+
+body {
+  padding-top: 100px;
+  /* *padding-bottom: 40px; */
+  font-size: 24px;
+  line-height: 32px;
+  color: #333;
+  text-align:center;
+}
+
+header {
+  left:0;
+  top:0;
+  margin-bottom: 100px;
+  position: fixed;
+  width: 100%;
+  color: black;
+  background: grey;
+}
+
+
+#left {
+  float: left;
+  position: fixed;
+  left: 0;
+  padding-bottom: 150px;
+  padding-top: 150px;
+  width: 50%;
+  color: black;
+  background: blue;
+
+}
+
+
+
+#right {
+  float: right;
+  position: fixed;
+  right: 0;
+  padding-bottom: 150px;
+  padding-top: 150px;
+  width: 25%;
+  color: black;
+  background: red;
+}
+
+
+
+
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  background: green;
+}

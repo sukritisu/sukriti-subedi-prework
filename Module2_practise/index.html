@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Country Name Guessing Game</title>
+  </head>
+  <body>
+    <h1>Country Guessing Game!!!</h1>
+    <p id="message"></p>
+    <!-- <h2>Press any key to get started!</h2> -->
+    <p><span id="answer">Press any Key to get started!</span></p>
+
+
+    <input id="guess" type="text">
+    <input type="button" value="Guess Letter" onclick="guessOne()">
+    <input type="button" value="Quit" onclick="quit()">
+    <p><font size="+2">No of Wins: <span id="wins"> </span></font></p>
+    <p><font size="+2">No of Loss: <span id="loss"> </span></font></p>
+    <p><font size="+2">Remaining guesses: <span id="remaining"> </span></font></p>
+    <p><font size="+2">Letters guessed already: <span id="guessedAlready"> </span></font></p>
+    <script src="game.js">
+    </script>
+
+  </body>
+</html>

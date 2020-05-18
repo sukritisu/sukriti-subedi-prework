@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Country Name Guessing Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/CSS/style.css">
+  </head>
+  <body>
+    
+    <div id = "makeSoft" style="background-image: url('assets/images/WorldMap.jpg');background-repeat: no-repeat;  background-attachment: fixed;background-size: cover;" class="jumbotron text-center">
+    <h1>Country Guessing Game</h1>
+    </div>
+    <div style="background-image: url('assets/images/WorldMap.jpg');background-repeat: no-repeat;  background-attachment: fixed;background-size: cover;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div  id = "makeSoft"class="jumbotron text-center">
+              <h3 id="message">Press any key to start guessing the name of the country!</h3>
+              <br>
+              <br>
+              <h3><span id="answer"></span></h3>      
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id = "makeSoft" class="jumbotron text-center">
+              <h3>No of Wins: <span id="wins"> </span></h3>
+              <h3>No of Loss: <span id="loss"> </span></h3>
+              <h3>Remaining guesses: <span id="remaining"> </span></h3>
+              <h3>Letters guessed already: <span id="guessedAlready"> </span></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+ 
+    <script src="assets/javascript/game.js"></script>
+
+  </body>
+</html>

@@ -1,5 +1,5 @@
-// Create an array of words-- randomly choose one on init
-var wordList = ['nepal', 'usa', 'canada', 'japan', 'uk','china', 'korea','france','italy','australia','mexico']
+// an array of countries-- randomly choose one on init
+var wordList = ['NEPAL', 'USA', 'CANADA', 'JAPAN', 'UK','CHINA', 'KOREA','FRANCE','ITALY','AUSTRALIA','MEXICO','GERMANY','INDIA','PAKISTAN','UKRAINE','RUSSIA','SPAIN','PORTUGAL','ZIMBABWE','UGANDA']
 
 // declare global variables
 // word stores the word being guessed
@@ -12,46 +12,49 @@ var answerArray = [];
 var guessedAlready = [];
 
 
-// var alreadyRanInitFunction = 0;
 
-//Game functions starts here
+//functions starts here
 
-const initFunction = function init() {
-	document.removeEventListener('keyup', initFunction);// listens to key pressed by user and calls init()
-	document.getElementById("guess").value = "";
-  /// Pick a random word from the wordList
+function init() {
+
+  // Pick a random word from the wordList
 	word = wordList[Math.floor(Math.random() * wordList.length)];
   // Setup Array
 	answerArray = [];
+	guessedAlready = [];
+	counterGuess = 0;
 	for (var i = 0; i < word.length; i++) {
     answerArray[i] = "_"
   }
-	// alreadyRanInitFunction = 1;
-  // document.getElementById("answer").innerHTML = "Play Game Now!"
-  document.getElementById("answer").innerHTML= answerArray.join(" ");
-  document.getElementById("message").innerHTML= "Type a letter then press 'Guess Letter', or press 'Quit' to stop playing."
-	// document.getElementById("themeSound").innerHTML;
+
+	document.getElementById("answer").innerHTML= answerArray.join(" ");
 }
 
-	document.addEventListener('keyup', initFunction);// listens to key pressed by user and calls init()
+init();
 
-// document.addEventListener('keyup', initFunction);// listens to key pressed by user and calls init()
 
-// Get a guess from the player
-function guessOne() {
-	var guess = document.getElementById("guess").value;
+document.addEventListener('keyup', guessOne);// listens to key pressed by user and calls guessOne()
+
+// Proceed with the game once a character key has been pressed and released
+function guessOne(e) {
+	// var guess = document.getElementById("guess").value;
+	guess = String.fromCharCode(e.which);
+	guess = guess.toUpperCase();
 	var showThisMessage = "";
-	if (guess.length !== 1) {
-		showThisMessage ="Please enter only a single letter";
+	if(!(guess>='A' && guess<='Z')){
+		showThisMessage ="Please input a valid alphabet.";		
+	}
+	else if (guessedAlready.includes(guess)) {
+		showThisMessage ="You've already tried this letter. <br>Enter a different one.";		
 	}
 	else {
 		// Update the game with the guess
-    counterGuess=counterGuess+1;
+    	counterGuess=counterGuess+1; // increment guess counter
 		guessedAlready.push(guess)
 		for (var i = 0; i < word.length; i++) {
 			if (word[i]===guess) {
 				answerArray[i] = guess;
-				showThisMessage = "YES! "+guess+" is in the answer";
+				showThisMessage = "Great! Letter "+guess+" is in the word.";
 			}
 		}
 		var remaining_letters=0;
@@ -61,19 +64,18 @@ function guessOne() {
 			}
 		}
 		if (remaining_letters == 0) {
-			showThisMessage = "YES! You guessed the word";
+			showThisMessage = "Congrats! You guessed the word. <br>Try this country.";
 			numWins = numWins+1;
 			init();
 		}
 		if (showThisMessage === "") {
-			showThisMessage = "Sorry, no "+guess;
+			showThisMessage = "Sorry, no "+guess+" in the answer.";
 		}
-		////Update the puzzle
+		//Update the puzzle
 		document.getElementById("answer").innerHTML = answerArray.join(" ");
 		// count the number of times user enter guesses
-		// counterGuess=counterGuess+1;
 		if (counterGuess >= maximumGuesses) {
-			showThisMessage = "Sorry, you guessed " + maximumGuesses +". Load a new game.";
+			showThisMessage = "Sorry, you guessed the limit " + maximumGuesses +" times. <br> The answer was: " + word+". <br>Try this new game.";
 			numLosses = numLosses + 1;
 			init();
 		}
@@ -81,8 +83,6 @@ function guessOne() {
 
 	}
 	document.getElementById("message").innerHTML = showThisMessage;
-	document.getElementById("guess").value = "";
-
 	document.getElementById("wins").innerHTML = numWins;
 	document.getElementById("loss").innerHTML = numLosses;
 	document.getElementById("remaining").innerHTML = maximumGuesses - counterGuess;
